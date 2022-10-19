@@ -1,0 +1,184 @@
+#header
+{
+    position: absolute;
+    z-index: 2;
+    top: 1.875rem;
+    right: 0;
+    left: 0;
+
+    transition: .2s;
+}
+
+@media (max-width: 768px)
+{
+    #header
+    {
+        position: fixed;
+        top: 0;
+
+        background: $Black;
+    }
+}
+
+#header.default
+{
+    position: fixed;
+    top: 0;
+
+    transition: position .2s linear;
+
+    background: $Black;
+    box-shadow: 0 0 25px 25px rgba(0, 0, 0, .25);
+}
+
+.header
+{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo img
+    {
+        height: 1.75rem;
+    }
+
+    &__burger
+    {
+        display: none;
+    }
+
+    @media (max-width: 768px)
+    {
+        &__burger
+        {
+            position: relative;
+
+            display: block;
+
+            width: 1.25rem;
+            height: 1rem;
+            margin: 1.5rem 0;
+
+            cursor: pointer;
+        }
+
+        &__burger:before,
+        &__burger:after
+        {
+            position: absolute;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            content: '';
+            background: $Grey;
+        }
+
+        &__burger:before
+        {
+            top: 0;
+        }
+
+        &__burger:after
+        {
+            bottom: 0;
+        }
+
+        &__burger span
+        {
+            position: absolute;
+            top: 7px;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background: $Grey;
+        }
+
+        &__burger.active:before
+        {
+            top: 7px;
+
+            transform: rotate(45deg);
+        }
+
+        &__burger.active:after
+        {
+            bottom: 7px;
+
+            transform: rotate(-45deg);
+        }
+
+        &__burger.active span
+        {
+            display: none;
+        }
+    }
+
+    &__navigation
+    {
+        display: flex;
+    }
+
+    @media (max-width: 768px)
+    {
+        &__navigation
+        {
+            position: fixed;
+            z-index: 2;
+            top: 4rem;
+            left: 0;
+
+            display: none;
+            overflow: auto;
+
+            width: 100%;
+            height: 100%;
+            padding-bottom: 4rem;
+
+            background: $Black;
+        }
+
+        &__navigation.active
+        {
+            display: block;
+        }
+    }
+
+    &__navigation li
+    {
+        position: relative;
+    }
+
+
+    @media (min-width: 768px)
+    {
+        &__navigation li:hover > a
+        {
+            color: $White;
+            background: $Red;
+        }
+    }
+
+    &__navigation a
+    {
+        font-weight: 700;
+
+        display: block;
+
+        padding: 1.5rem .75rem;
+
+        color: $Grey;
+
+        text-decoration: none;
+    }
+
+    &__navigation a:hover
+    {
+        color: $White;
+        background: $Red;
+    }
+}

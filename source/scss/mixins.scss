@@ -1,0 +1,53 @@
+$maxWidth: 1300;
+
+@mixin adaptive($mobSize, $pcSize)
+{
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+
+    font-size: calc(#{$mobSize + rem} + #{$addSize * 16} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+
+
+@mixin button
+{
+    font-size: 1rem;
+    font-weight: 700;
+
+    display: inline-flex;
+
+    padding: .9em 1.25em;
+
+    transition: .3s;
+    white-space: nowrap;
+    text-transform: uppercase;
+
+    color: $White;
+    border: none;
+    background: $Red;
+
+    &:hover
+    {
+        text-decoration: none;
+        filter: brightness(75%);
+    }
+}
+
+@mixin noise
+{
+    &:after
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        content: '';
+        pointer-events: none;
+
+        opacity: .6;
+        background: url('../../dist/images/background/other/noise.png');
+    }
+}
